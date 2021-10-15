@@ -1,160 +1,589 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
-	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Баламутівка</title>
-	<link href="css/stylesheet.css" rel="stylesheet">
-	<link rel="shortcut icon" href="..\Hamsters\img\it_bro.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <style>/* Stylesheet 1: */
+    body {
+        font: 100% Lucida Sans, Verdana;
+        margin: 20px;
+        line-height: 26px;
+    }
+    
+    .container {
+        xmin-width: 900px;
+    }
+    
+    .switch_wrapper {
+        position: relative;
+        overflow: auto;
+    }
+    
+    #top, #sidebar, #bottom, .menuitem {
+        border-radius: 4px;
+        margin: 4px;
+    }
+    
+    #top {
+        background-color: #04AA6D;
+        color: #ffffff;
+        padding: 15px;
+    }
+    
+    #main {
+        padding: 10px;
+        margin: 0 210px;
+    }
+    
+    #sidebar {
+        background-color: #32a4e7;
+        color: #ffffff;
+        padding: 10px;
+        width: 180px;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        position: absolute;
+    }
+    
+    #bottom {
+        border: 1px solid #d4d4d4;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        line-height: 14px;
+    }
+    
+    #top h1, #top p, #menulist {
+        margin: 0;
+        padding: 0;
+    }
+    #menulist {
+        padding: 0;
+        position: relative;
+        overflow: auto;
+    }
+    
+    .menuitem {
+        background-color: #f1f1f1;
+        float: left;
+        border: 1px solid #d4d4d4;
+        list-style-type: none;
+        padding: 2px;
+        cursor: pointer;
+    }
+    
+    .menuitem:hover {
+        background-color: #ffffff;
+    }
+    
+    .menuitem:first-child {
+       background-color:#04AA6D;
+       color: white;
+       font-weight:bold;
+    }
+    
+    a {
+        color: #000000;
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        text-decoration: none;
+    }
+    
+    
+    @media (max-width: 800px) {
+        #sidebar {
+            width: auto;
+            position: relative;
+        } 
+        #main {
+            margin-right: 0;
+        }    
+           
+    }
+    
+    @media (max-width: 600px) {
+        #menubar {
+            width: auto;
+            float: none;
+        }
+        #main {
+            margin: 0;
+        }    
+    }
+    </style>
+    
+    <style>/* Stylesheet 2: */
+    body {
+        font-family: Arial;
+        background-color: #d14836;
+        line-height: 20px;
+    }
+    
+    .container {
+        xmin-width: 900px;
+    }
+    
+    .switch_wrapper {
+        position: relative;
+        overflow: auto;
+    }
+    
+    #top {
+        color: #ffffff;
+        padding: 15px;
+        font-size: 30px;
+        line-height: 26px;    
+    }
+    
+    #top h1 {
+        margin:0;
+        line-height: 50px;
+    }
+    #main {
+        padding: 10px;
+        background-color: #ffffff;
+        font: 80% Verdana;
+    }
+    
+    #main h1, #main h2 {
+        color: #d14836;
+    }
+    
+    #sidebar {
+        background-color: #F6DAD7;
+        color: #d14836;
+        padding: 10px;
+    }
+    
+    #bottom {
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        color: #ffffff;
+    }
+    
+
+    #menulist {
+        padding: 0;
+        font: 16px verdana;
+        position: relative;
+        overflow: auto;
+    }
+    
+    .menuitem {
+        width: 155px;
+        float: left;
+        background-color: #d14836;
+        border: 1px solid #d14836;
+        border-radius: 40px;
+        color: #ffffff;
+        list-style-type: none;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .menuitem:nth-child(2) {
+       background-color:white;
+       color: #d14836;
+       font-weight:bold;
+    }
+    
+    .menuitem:hover {
+        background-color: #ffffff;
+        color: #d14836;
+    }
+    
+    a {
+        color: #d14836;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    </style>
+    
+    <style>/* Stylesheet 3: */
+    body {
+        font: 100% Verdana;
+        margin: 20px;
+        line-height: 26px;
+    }
+    
+    .container {
+        xmin-width: 900px;
+    }
+    
+    .switch_wrapper {
+        position: relative;
+        overflow: auto;
+    }
+    #top {
+    color: #21271d;
+    padding: 15px;
+    }
+    .home, .services, .portfolio, .about, .contact{
+	color: grey;
+    }
+    #sidebar {
+        background-color: #f1f1f1;
+        border: 1px solid #d4d4d4;
+        padding-left: 10px;
+    }
+    
+    #bottom {
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        line-height: 14px;
+    }
+    
+    h1, h2, h3 {
+        color: #4CAF50;
+    }
+    
+    #menulist {
+        padding: 0;
+        position: relative;
+        overflow: auto;
+    }
+    
+    .menuitem {
+        width: 165px;
+        float: left;
+        background-color: #555555;
+        color: #ffffff;
+        list-style-type: none;
+        margin: 4px;
+        padding: 2px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .menuitem:nth-child(3) {
+       background-color:#04AA6D;
+    }
+    
+    .menuitem:hover {
+        background-color: #000;
+    }
+    
+    a {
+        color: #000000;
+    }
+    
+    a:hover {
+        color: #84c754;
+    }
+    </style>
+    <style>/* Stylesheet 4: */
+    body {
+        font: 100% Courier New;
+        margin: 20px;
+        line-height: 26px;
+        background-color: #000000;
+    }
+    
+    .container {
+        xmin-width: 900px;
+    }
+    
+    .switch_wrapper {
+        position: relative;
+        overflow: auto;
+    }
+    
+    #top {
+        color: #84c754;
+        padding: 15px;
+    }
+    
+    #main {
+        padding: 10px;
+        color: #84c754;
+    }
+    
+    #sidebar {
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 4px;
+        padding: 10px;
+        width: 320px;
+        top: 0;
+        right: 0;
+        position: absolute;
+        font-size: 80%;
+        line-height: 20px;
+    }
+    
+    #bottom {
+        border: 1px solid #ffffff;
+        border-radius: 4px;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        line-height: 14px;
+    }
+    
+    #top h1,#top p {
+        margin: 0;
+    }
+    #menulist {
+    padding: 0;
+    position: relative;
+    overflow: auto;
+    }
+    
+    .menuitem {
+        float: left;
+        color: #84c754;
+        cursor: pointer;
+        list-style-type: none;
+        margin: 4px;
+        padding: 2px;
+        text-align: center;
+    }
+    
+    .menuitem:nth-child(4) {
+        color:white;
+        font-weight:bold;
+    }
+    
+    .menuitem:hover {
+        color: #ffffff;
+    }
+    
+    a {
+        color: #ffffff;
+    }
+    
+    a:hover {
+        color: #84c754;
+    }
+    @media (max-width: 600px) {
+        #sidebar {
+           width: auto;
+           margin-bottom:10px;        
+           position: relative;
+        }    
+    }
+    
+    </style>
+       
+<link rel="stylesheet"
+       href="css/libs.min.css">
+<link rel="stylesheet"
+       href="css/style.min.css">
+<link rel="stylesheet"
+        href="css/test.css">
 </head>
-
 <body>
+<div class="container wrapper">
+  <div id="top">
+    <header class="header">
+        <div class="header_wrapper">
+          <div class="logo">
+            <img src="img/IMG_1997.webp">
+          </div>
+          <nav>
+            <div class="hspac">
+              <div class="home">
+                <span>ГОЛОВНА </span>
+              </div>
+              <div class="services">
+                <span>СЕРВІСИ</span>
+              </div>
+              <div class="portfolio">
+                <span>ПОРТФОЛІО</span>
+              </div>
+              <div class="about">
+                <span>КОМАНДА</span>
+              </div>
+              <div class="contact">
+                <span>КОНТАКТИ</span>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+  </div>
+  <div class="switch_wrapper">
+    <div id="menubar">
+     <ul id="menulist">
+       <li class="menuitem" onclick="reStyle(0)">Stylesheet 1
+       </li><li class="menuitem" onclick="reStyle(1)">Stylesheet 2
+       </li><li class="menuitem" onclick="reStyle(2)">Stylesheet 3
+       </li><li class="menuitem" onclick="reStyle(3)">Stylesheet 4
+      </li></ul>
+     </div>
+  </div>
+    
 
-<!--Header-->
-<header>
-	<div class="wrapper">
-		<div class="logo">
-			<a href="#">Баламутівка</a>
-		</div>
-		<nav>
-			<a href="#">баламути</a> <a href="#">баламутки</a> <a href="#">створити баламута</a><a href="https://www.google.com.ua/search?q=%D0%B1%D0%B0%D0%BF%D0%B0%D0%BC%D1%83%D1%82&hl=uk&sxsrf=AOaemvKxyScrfPC5jo8FhRAdwjalQDYs8A%3A1633763008893&source=hp&ei=wD5hYav6MsuRxc8PzKKGkAQ&iflsig=ALs-wAMAAAAAYWFM0MO22hm8P7sjtczM0S9ZT3odcKaM&ved=0ahUKEwir2qe-4bzzAhXLSPEDHUyRAUIQ4dUDCAc&uact=5&oq=%D0%B1%D0%B0%D0%BF%D0%B0%D0%BC%D1%83%D1%82&gs_lcp=Cgdnd3Mtd2l6EAMyBwguEA0QkwIyBAguEA0yCgguEMcBEK8BEA0yBAgAEA0yBAgAEA0yBAgAEA0yBAgAEA0yBAgAEA0yBAguEA0yBAgAEA06BwgjEOoCECc6BwguEOoCECc6CAguEIAEEJMCOgUIABCABDoLCAAQgAQQsQMQgwE6CAgAEIAEELEDOggILhCABBCxAzoECCMQJzoICC4QsQMQgwE6CwguEIAEELEDEIMBOgUILhCABDoLCC4QgAQQxwEQrwE6DgguEIAEELEDEMcBENEDOhEILhCABBCxAxCDARDHARCvAToLCC4QgAQQsQMQkwI6BAgAEAo6BwguELEDEAo6BwgAELEDEAo6CgguEMcBEK8BEAo6BwgAEIAEEAo6CggAELEDEIMBEAo6DQguEMcBEK8BEA0QkwI6BwguELEDEA06BwgAELEDEA06BwgAEMkDEA06BQgAEJIDOgYIABANEApQwTFYntkBYKjtAWgJcAB4AIABggGIAcgLkgEEMi4xMZgBAKABAbABCg&sclient=gws-wiz">пошук баламута</a>
-		</nav>
-	</div>
-</header>
-<!--End Header-->
+<main class="main flex">
+      <nav class="left-sidebar">
+       <ul>
+         <li><a href="#hero">Hero</a></li>
+         <li><a href="#typography">Typography</a></li>
+         <li><a href="#buttons">Buttons</a></li>
+         <li><a href="#blockquote">Blockquote</a></li>
+         <li><a href="#grid">Grid</a></li>
+         <li><a href="#avatar">Avatar</a></li>
+         <li><a href="#list">List</a></li>
+         <li><a href="#card">Card</a></li>
+         <li><a href="#figure">Figure</a></li>
+         <li><a href="#gallery">Gallery</a></li>
+       </ul>
+      </nav>
+     <div id="main">
+        <article id="typography">
+            <h2>Typography</h2>
+            <p>Basic text writing, including headings, body text, lists, and more.</p>
+          
+            <h3>Heading</h3>
+            <h1>Header 1</h1>
+            <h2>Header 2</h2>
+            <h3>Header 3</h3>
+            <h4>Header 4</h4>
+            <h5>Header 5</h5>
+            <h6>Header 6</h6>
+          
+            <h3>Paragraph</h3>
+            <p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Commodi distinctio minus magnam. Perferendis fugit dignissimos ab, sint nemo rerum quisquam magni molestiae nobis temporibus molestias labore sed! Culpa, sit mollitia dolorem repudiandae ut suscipit voluptatem, nam esse debitis quo iure, veritatis deleniti minima itaque, nostrum. Quidem cum aperiam expedita laudantium pariatur mollitia, aliquid et sint, eveniet ipsa sequi necessitatibus inventore aut soluta cupiditate sapiente odit maiores? Minima deserunt enim nesciunt, sed inventore maxime, ullam reprehenderit debitis ut veniam ipsam fugiat suscipit optio perspiciatis rerum ea dolorem sapiente dicta voluptate. Doloremque veniam facilis culpa nulla illo explicabo, recusandae pariatur, ipsum laudantium.</p>
+          
+            <h3>Link</h3>
+            <a href="#">link</a>
+          
+            <h3>Text</h3>
+            <h4>Ellipsis</h4>
+            <p class="ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius odio, eos dolorem accusantium natus magni repellendus dignissimos nemo saepe minus ex sit libero doloribus officia dolore totam sed, neque deleniti numquam quidem. Similique amet minus numquam quam ipsum odio, molestias molestiae velit quos voluptas esse repellendus maxime beatae et voluptatem!</p>
+            <h4>Clip</h4>
+            <p class="clip">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius odio, eos dolorem accusantium natus magni repellendus dignissimos nemo saepe minus ex sit libero doloribus officia dolore totam sed, neque deleniti numquam quidem. Similique amet minus numquam quam ipsum odio, molestias molestiae velit quos voluptas esse repellendus maxime beatae et voluptatem!</p>
+          </article>
+          
+                <article id="blockquote">
+            <h2>Blockquote</h2>
+            <h3>Default blockquote</h3>
+            <blockquote class="blockquote">
+              <p class="">“The default style of block quotes really just makes an adjustment to font-sizing as well as the footer text.”</p>
+              <footer class="blockquote-footer"><span class="material-icons">minimize</span>This is the footer</footer>
+            </blockquote>
+          
+            <h3>Custom blockquote</h3>
+            <blockquote class="blockquote blockquote-custom">
+              <span class="material-icons">format_quote</span>
+              <p class="text-italic">The additional quote bar on the top and bottom highlight the quote clearly as a quotation and help the quote stand out more than the default styling.</p>
+              <footer class="blockquote-footer text-right"><span class="material-icons">minimize</span>Author Name<br>Title</footer>
+              <span class="material-icons">format_quote</span>
+            </blockquote>
+          </article>
+          
+                <article id="buttons">
+            <h2>Types of buttons</h2>
+            <div>
+              <code>Default</code>: default style for button
+              <button class="btn">Button Default</button>
+            </div>
+            <div>
+              <code>Primary</code>: style for primary button
+              <button class="btn btn-primary">Button Primary</button>
+              <button class="btn btn-primary disabled">Button Disabled </button>
+            </div>
+            <div>
+              <code>Secondary</code>: style for secondary button
+              <button class="btn btn-secondary">Button Secondary</button>
+              <button class="btn btn-secondary disabled">Button Disabled</button>
+            </div>
+            <div>
+              <code>Cancel</code>: used for actions of risk, like deletion or authorization.
+              <button class="btn btn-cancel">Button Danger</button>
+            </div>
+            <h2>Sizes of buttons</h2>
+            <div>
+              <code>Default</code>: default style for button
+              <button class="btn">Button Default</button>
+            </div>
+            <div>
+              <code>small</code>: default style for button
+              <button class="btn btn-sm">Button Small</button>
+            </div>
+            <div>
+              <code>large</code>: default style for button
+              <button class="btn btn-lg">Button Large</button>
+            </div>
+            
+          </article> </div>
+</main>
+<div class="footer-basic">
+ <footer>
+    <div class="social">
+      <a class="icon" href="#"><img src="img/logo-facebook.svg"></a>
+      <a class="icon" href="#"><img src="img/logo-twitter.svg"></a>
+      <a class="icon" href="#"><img src="img/logo-linkedin.svg"></a>
+      <a class="icon" href="#"><img src="img/logo-telegram.svg"></a>
+      <a class="icon" href="#"><img src="img/logo-slack.svg"></a>
+      
+    </div>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Home</a></li>
+      <li class="list-inline-item"><a href="#">Services</a></li>
+      <li class="list-inline-item"><a href="#">Portfolio</a></li>
+      <li class="list-inline-item"><a href="#">About</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+    </ul>
+    <p class="copyright">Зачаровано Sigma-squad © 2021</p>
+ </footer>
 
-<!--Banner area-->
-<div class="bannerArea" style="background-image: url(img/Баламутівка_4.jpg)">
-	<h2 class="bannerAreaText">Рідне село</h2>
 </div>
-<!--End Banner area-->
 
-<!--Content area #2-->
-<div class="contentAreaInfo">
-	<div class="wrapper2">
-		<h2></h2>
-		<hr>
-		<p>
-			Баламу́тівка — село в Україні, у Заставнівському районі Чернівецькій області.<br>
-		    Розташоване за 40 км від обласного центру. <br>
-			Назва села походить від назви річки Баламутка, що протікає селом. <br>
-			Висота над рівнем моря: 229 м<br>
-			Область: Чернівецька область<br>
-			Район/міськрада: Заставнівський район<br>
-			Відстань до обласного центру: 40 км<br>
-			Населення: 1786<br>
-		</p>
-	</div>
-</div>
-<!--End Content area #2-->
+<script>
+function noStyles() {
+    document.styleSheets[0].disabled = true;
+    document.styleSheets[1].disabled = true;
+    document.styleSheets[2].disabled = true;
+    document.styleSheets[3].disabled = true;
+}
+
+function reStyle(n) {
+    noStyles()
+    document.styleSheets[n].disabled = false;
+}
+
+function closeBlackdiv() {
+    var blackdiv, stylediv;
+    blackdiv = document.getElementById("blackdiv")
+    blackdiv.parentNode.removeChild(blackdiv);
+    stylediv = document.getElementById("stylediv")
+    stylediv.parentNode.removeChild(stylediv);
+}
+
+function showStyle(n) {
+var div, text, blackdiv;
+blackdiv = document.createElement("DIV");
+blackdiv.setAttribute("style","background-color:#000000;position:absolute;width:100%;height:100%;top:0;opacity:0.5;margin-left:-20px;");
+blackdiv.setAttribute("id","blackdiv");
+blackdiv.setAttribute("onclick","closeBlackdiv()");
+document.body.appendChild(blackdiv);
+div = document.createElement("DIV");
+div.setAttribute("id","stylediv");
+div.setAttribute("style","background-color:#ffffff;padding-left:5px;position:absolute;width:auto;height:auto;top:100px;bottom:50px;left:200px;right:200px;overflow:auto;font-family: monospace; white-space: pre;line-height:16px;");
+text = document.createTextNode(document.getElementsByTagName("STYLE")[n].innerHTML);
+div.appendChild(text);
+document.body.appendChild(div);
+//alert(document.getElementsByTagName("STYLE")[n].innerHTML);
+}
+reStyle(0);
+</script>
 
 
-<!--Content area #1-->
-<div class="contentAreaVideos">
-	<div class="wrapper1">
-		<h2>Про нас</h2>
-
-		<table id="videoTable">
-			<tr>
-				<td><iframe class = "smallVideo" width="420" height="315" src="https://www.youtube.com/embed/cRkxq0xqGpc"></iframe></td>
-				<td><iframe class = "smallVideo" width="420" height="315" src="https://www.youtube.com/embed/4JTQ2nA2Ctw"></iframe></td>
-			<tr>
-				<td><iframe class = "smallVideo" width="420" height="315" src="https://www.youtube.com/embed/RD-yHI2K0QE"></iframe></td>
-				<td><iframe class = "smallVideo" width="420" height="315" src="https://www.youtube.com/embed/yjPlsDq-z6s"></iframe></td>
-			</tr>
-		</table>
-	</div>
-</div>
-<!--End Content area #1-->
-
-<!--Content area #3-->
-<div class="contentAreaGalery">
-	<div class="wrapper2">
-		<h2>ГАЛЕРЕЯ</h2>
-		<hr>
-		<div class="galleryList">
-			<a href="img/image1.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image1.jpg" alt="alt">
-			</a>
-			<a href="img/image2.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image2.jpg" alt="alt">
-			</a>
-			<a href="img/image3.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image3.jpg" alt="alt">
-			</a>
-			<a href="img/image4.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image4.jpg" alt="alt">
-			</a>
-			<a href="img/image5.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image5.jpg" alt="alt">
-			</a>
-			<a href="img/image6.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image6.jpg" alt="alt">
-			</a>
-			<a href="img/image7.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image7.jpg" alt="alt">
-			</a>
-			<a href="img/image8.jpg" class="galleryItem">
-				<div class="galleryItemHover">Дивитися</div>
-				<img src="img/image8.jpg" alt="alt">
-			</a>
-		</div>
-	</div>
-</div>
-<!--End Content area #3-->
-
-<!--Footer-->
-<footer>
-	<div class="footerWrapper">
-		<div class="info">
-			<h4>Зв'яжіться з нами</h4>
-			<form action="#" class="form">
-				<input type="email" placeholder="Email" class="emailInput"  required>
-				<button type="submit" class="sendButton">Відправити</button>
-			</form>
-		</div>
-
-		<div class="footerMenu">
-			<ul >
-				<li class="footerMenuItem">
-					<a href="#">про нас</a>
-				</li>
-				<li class="footerMenuItem">
-					<a href="#">контакти</a>
-				</li>
-				<li class="footerMenuItem">
-					<a href="../Hamsters/About_activeLib.html">Про бібліотеку activeLib</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="footerMenu">
-			<ul>
-				<li class="footerMenuItem">
-					<a href="#">telegram</a>
-				</li>
-				<li class="footerMenuItem">
-					<a href="#">facebook</a>
-				</li>
-				<li class="footerMenuItem">
-					<a href="#">github</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="copyright">
-		<p>&copy; Sygma_begginers, 2021</p>
-	</div>
-
-</footer>
-<!--End Footer-->
 
 </body>
-
+</html>
